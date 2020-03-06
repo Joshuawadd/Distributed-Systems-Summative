@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Intro and Example — Pyro 4.79 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/modernizr.min.js.download"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./Intro and Example — Pyro 4.79 documentation_files/documentation_options.js.download"></script>
+        <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/jquery.js.download"></script>
+        <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/underscore.js.download"></script>
+        <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/doctools.js.download"></script>
+        <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/language_data.js.download"></script>
+        <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/readthedocs-doc-embed.js.download"></script>
+    
+    <script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/theme.js.download"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./Intro and Example — Pyro 4.79 documentation_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./Intro and Example — Pyro 4.79 documentation_files/pygments.css" type="text/css">
+  <link rel="stylesheet" href="./Intro and Example — Pyro 4.79 documentation_files/customize.css" type="text/css">
+    <link rel="index" title="Index" href="https://pyro4.readthedocs.io/en/stable/genindex.html">
+    <link rel="search" title="Search" href="https://pyro4.readthedocs.io/en/stable/search.html">
+    <link rel="next" title="Installing Pyro" href="https://pyro4.readthedocs.io/en/stable/install.html">
+    <link rel="prev" title="Pyro - Python Remote Objects - 4.79" href="https://pyro4.readthedocs.io/en/stable/index.html"> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://pyro4.readthedocs.io/en/stable/intro.html">
+
+<link rel="stylesheet" href="./Intro and Example — Pyro 4.79 documentation_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/readthedocs-data.js.download"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "intro"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="./Intro and Example — Pyro 4.79 documentation_files/readthedocs-analytics.js.download"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://pyro4.readthedocs.io/en/stable/index.html" class="icon icon-home"> Pyro
+          
+
+          
+            
+            <img src="./Intro and Example — Pyro 4.79 documentation_files/pyro.png" class="logo" alt="Logo">
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                stable
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://pyro4.readthedocs.io/en/stable/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents of this manual:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#"><span class="toctree-expand"></span>Intro and Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#about-pyro-feature-overview"><span class="toctree-expand"></span>About Pyro: feature overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#pyro-s-history">Pyro’s history</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#what-can-you-use-pyro-for">What can you use Pyro for?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#simple-example"><span class="toctree-expand"></span>Simple Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#with-a-name-server">With a name server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#other-means-of-creating-connections">Other means of creating connections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/install.html">Installing Pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/tutorials.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/commandline.html">Command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/clientcode.html">Clients: Calling remote objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/servercode.html">Servers: hosting Pyro objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/nameserver.html">Name Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/errors.html">Exceptions and remote tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/flame.html">Flame: Foreign Location Automatic Module Exposer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/tipstricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/config.html">Configuring Pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/api.html">Pyro4 library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/alternative.html">Running on alternative Python implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/pyrolite.html">Pyrolite - client library for Java and .NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/license.html">Software License and Disclaimer</a></li>
+</ul>
+
+            
+          
+        </div>
+      <div id="rtd-gyj2uot8" class="ethical-rtd ethical-dark-theme"></div><div id="rtd-9l2uh341" class="keep-us-sustainable"><p>Support Read the Docs!</p><p>Please help keep us sustainable by <a href="https://docs.readthedocs.io/en/latest/advertising/ad-blocking.html#allowing-ethical-ads">allowing our Ethical Ads in your ad blocker</a> or <a href="https://readthedocs.org/sustainability/">go ad-free</a> by subscribing.</p><p>Thank you! ❤️</p></div></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://pyro4.readthedocs.io/en/stable/index.html">Pyro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://pyro4.readthedocs.io/en/stable/index.html">Docs</a> »</li>
+        
+      <li>Intro and Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/irmen/Pyro4/blob/9fd891c1cf33530cd263f83ed7f805317474a48c/docs/source/intro.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="intro-and-example">
+<h1>Intro and Example<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#intro-and-example" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/pyro-large.png" class="align-center" src="./Intro and Example — Pyro 4.79 documentation_files/pyro-large.png">
+<p>This chapter contains a little overview of Pyro’s features and a simple example to show how it looks like.</p>
+<div class="section" id="about-pyro-feature-overview">
+<span id="index-0"></span><h2>About Pyro: feature overview<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#about-pyro-feature-overview" title="Permalink to this headline">¶</a></h2>
+<p>Pyro is a library that enables you to build applications in which
+objects can talk to each other over the network, with minimal programming effort.
+You can just use normal Python method calls, with almost every possible parameter
+and return value type, and Pyro takes care of locating the right object on the right
+computer to execute the method. It is designed to be very easy to use, and to
+generally stay out of your way. But it also provides a set of powerful features that
+enables you to build distributed applications rapidly and effortlessly.
+Pyro is a pure Python library and runs on many different platforms and Python versions.</p>
+<p>Here’s a quick overview of Pyro’s features:</p>
+<ul class="simple">
+<li>written in 100% Python so extremely portable, runs on Python 2.7, Python 3.5 and newer, IronPython, Pypy 2 and 3.</li>
+<li>works between different system architectures and operating systems.</li>
+<li>able to communicate between different Python versions transparently.</li>
+<li>defaults to a safe serializer (<a class="reference external" href="https://pypi.python.org/pypi/serpent">serpent</a>) that supports many Python data types.</li>
+<li>supports different serializers (serpent, json, marshal, msgpack, pickle, cloudpickle, dill).</li>
+<li>support for all Python data types that are serializable when using the ‘pickle’, ‘cloudpickle’ or ‘dill’ serializers <a class="footnote-reference" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#id2" id="id1">[1]</a>.</li>
+<li>can use IPv4, IPv6 and Unix domain sockets.</li>
+<li>optional secure connections via SSL/TLS (encryption, authentication and integrity), including certificate validation on both ends (2-way ssl).</li>
+<li>lightweight client library available for .NET and Java native code (‘Pyrolite’, provided separately).</li>
+<li>designed to be very easy to use and get out of your way as much as possible, but still provide a lot of flexibility when you do need it.</li>
+<li>name server that keeps track of your object’s actual locations so you can move them around transparently.</li>
+<li>yellow-pages type lookups possible, based on metadata tags on registrations in the name server.</li>
+<li>support for automatic reconnection to servers in case of interruptions.</li>
+<li>automatic proxy-ing of Pyro objects which means you can return references to remote objects just as if it were normal objects.</li>
+<li>one-way invocations for enhanced performance.</li>
+<li>batched invocations for greatly enhanced performance of many calls on the same object.</li>
+<li>remote iterator on-demand item streaming avoids having to create large collections upfront and transfer them as a whole.</li>
+<li>you can define timeouts on network communications to prevent a call blocking forever if there’s something wrong.</li>
+<li>asynchronous invocations if you want to get the results ‘at some later moment in time’. Pyro will take care of gathering the result values in the background.</li>
+<li>remote exceptions will be raised in the caller, as if they were local. You can extract detailed remote traceback information.</li>
+<li>http gateway available for clients wanting to use http+json (such as browser scripts).</li>
+<li>stable network communication code that works reliably on many platforms.</li>
+<li>can hook onto existing sockets created for instance with socketpair() to communicate efficiently between threads or sub-processes.</li>
+<li>possibility to use Pyro’s own event loop, or integrate it into your own (or third party) event loop.</li>
+<li>three different possible instance modes for your remote objects (singleton, one per session, one per call).</li>
+<li>many simple examples included to show various features and techniques.</li>
+<li>large amount of unit tests and high test coverage.</li>
+<li>reliable and established: built upon more than 15 years of existing Pyro history, with ongoing support and development.</li>
+</ul>
+<div class="section" id="pyro-s-history">
+<span id="index-1"></span><h3>Pyro’s history<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#pyro-s-history" title="Permalink to this headline">¶</a></h3>
+<p>I started working on the first Pyro version in 1998, when remote method invocation technology such as Java’s RMI
+and CORBA were quite popular. I wanted something like that in Python and there was nothing available, so I decided
+to write my own. Over the years it slowly gained features till it reached version 3.10 or so.
+At that point it was clear that the code base had become quite ancient and couldn’t reliably support any new features,
+so Pyro4 was born in early 2010, written from scratch.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pyro</span></code> is the package name of the old and no longer supported 3.x version of Pyro.
+<code class="docutils literal notranslate"><span class="pre">Pyro4</span></code> is the package name of the current version. Its concepts are similar to Pyro 3.x but it is not
+backwards compatible. To avoid conflicts, this version has a different package name.</p>
+<p>If you’re somehow still interested in the old version, here is <a class="reference external" href="https://github.com/irmen/Pyro3">its git repo</a>
+and it is also still <a class="reference external" href="http://pypi.python.org/pypi/Pyro/">available on PyPi</a> – but don’t use it unless
+you really have to.</p>
+</div>
+</div>
+<div class="section" id="what-can-you-use-pyro-for">
+<span id="index-2"></span><h2>What can you use Pyro for?<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#what-can-you-use-pyro-for" title="Permalink to this headline">¶</a></h2>
+<p>Essentially, Pyro can be used to distribute and integrate various kinds of resources or responsibilities:
+computational (hardware) resources (cpu, storage, printers),
+informational resources (data, privileged information)
+and business logic (departments, domains).</p>
+<p>An example would be a high performance compute cluster with a large storage system attached to it.
+Usually this is not accessible directly, rather, smaller systems connect to it and
+feed it with jobs that need to run on the big cluster. Later, they collect the results.
+Pyro could be used to expose the available resources on the cluster to other computers.
+Their client software connects to the cluster and calls the Python program there to perform its
+heavy duty work, and collect the results (either directly from a method call return value,
+or perhaps via asynchronous callbacks).</p>
+<p>Remote controlling resources or other programs is a nice application as well.
+For instance, you could write a simple
+remote controller for your media server that is running on a machine somewhere in a closet.
+A simple remote control client program could be used to instruct the media server
+to play music, switch playlists, etc.</p>
+<p>Another example is the use of Pyro to implement a form of <a class="reference external" href="http://en.wikipedia.org/wiki/Privilege_separation">privilege separation</a>.
+There is a small component running with higher privileges, but just able to execute the few tasks (and nothing else)
+that require those higher privileges. That component could expose one or more Pyro objects
+that represent the privileged information or logic.
+Other programs running with normal privileges can talk to those Pyro objects to
+perform those specific tasks with higher privileges in a controlled manner.</p>
+<p>Finally, Pyro can be a communication glue library to easily integrate various pars of a heterogeneous system,
+consisting of many different parts and pieces. As long as you have a working (and supported) Python version
+running on it, you should be able to talk to it using Pyro from any other part of the system.</p>
+<p>Have a look at the <code class="file docutils literal notranslate"><span class="pre">examples</span></code> directory in the source archive, perhaps one of the many example
+programs in there gives even more inspiration of possibilities.</p>
+</div>
+<div class="section" id="simple-example">
+<span id="index-3"></span><h2>Simple Example<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#simple-example" title="Permalink to this headline">¶</a></h2>
+<p>This example will show you in a nutshell what it’s like to use Pyro in your programs.
+A much more extensive introduction is found in the <a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/tutorials.html"><span class="doc">Tutorial</span></a>.
+Here, we’re making a simple greeting service that will return a personalized greeting message to its callers.
+First let’s see the server code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># saved as greeting-server.py</span>
+<span class="kn">import</span> <span class="nn">Pyro4</span>
+
+<span class="nd">@Pyro4</span><span class="o">.</span><span class="n">expose</span>
+<span class="k">class</span> <span class="nc">GreetingMaker</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Hello, </span><span class="si">{0}</span><span class="s2">. Here is your fortune message:</span><span class="se">\n</span><span class="s2">"</span> \
+               <span class="s2">"Behold the warranty -- the bold print giveth and the fine print taketh away."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro4</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>                <span class="c1"># make a Pyro daemon</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">GreetingMaker</span><span class="p">)</span>   <span class="c1"># register the greeting maker as a Pyro object</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ready. Object uri ="</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>      <span class="c1"># print the uri so we can use it in the client later</span>
+<span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>                   <span class="c1"># start the event loop of the server to wait for calls</span>
+</pre></div>
+</div>
+<p>Open a console window and start the greeting server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python greeting-server.py
+Ready. Object uri = PYRO:obj_edb9e53007ce4713b371d0dc6a177955@localhost:51681
+</pre></div>
+</div>
+<p>Great, our server is running. Let’s see the client code that invokes the server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># saved as greeting-client.py</span>
+<span class="kn">import</span> <span class="nn">Pyro4</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What is the Pyro uri of the greeting object? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What is your name? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">greeting_maker</span> <span class="o">=</span> <span class="n">Pyro4</span><span class="o">.</span><span class="n">Proxy</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>         <span class="c1"># get a Pyro proxy to the greeting object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting_maker</span><span class="o">.</span><span class="n">get_fortune</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>   <span class="c1"># call method normally</span>
+</pre></div>
+</div>
+<p>Start this client program (from a different console window):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python greeting-client.py
+What is the Pyro uri of the greeting object?  &lt;&lt;paste the uri that the server printed earlier&gt;&gt;
+What is your name?  &lt;&lt;type your name; in my case: Irmen&gt;&gt;
+Hello, Irmen. Here is your fortune message:
+Behold the warranty -- the bold print giveth and the fine print taketh away.
+</pre></div>
+</div>
+<p>As you can see the client code called the greeting maker that was running in the server elsewhere,
+and printed the resulting greeting string.</p>
+<div class="section" id="with-a-name-server">
+<h3>With a name server<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#with-a-name-server" title="Permalink to this headline">¶</a></h3>
+<p>While the example above works, it could become tiresome to work with object uris like that.
+There’s already a big issue, <em>how is the client supposed to get the uri, if we’re not copy-pasting it?</em>
+Thankfully Pyro provides a <em>name server</em> that works like an automatic phone book.
+You can name your objects using logical names and use the name server to search for the
+corresponding uri.</p>
+<p>We’ll have to modify a few lines in <code class="file docutils literal notranslate"><span class="pre">greeting-server.py</span></code> to make it register the object in the name server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># saved as greeting-server.py</span>
+<span class="kn">import</span> <span class="nn">Pyro4</span>
+
+<span class="nd">@Pyro4</span><span class="o">.</span><span class="n">expose</span>
+<span class="k">class</span> <span class="nc">GreetingMaker</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_fortune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Hello, </span><span class="si">{0}</span><span class="s2">. Here is your fortune message:</span><span class="se">\n</span><span class="s2">"</span> \
+               <span class="s2">"Tomorrow's lucky number is 12345678."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro4</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>                <span class="c1"># make a Pyro daemon</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">Pyro4</span><span class="o">.</span><span class="n">locateNS</span><span class="p">()</span>                  <span class="c1"># find the name server</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">GreetingMaker</span><span class="p">)</span>   <span class="c1"># register the greeting maker as a Pyro object</span>
+<span class="n">ns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">"example.greeting"</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>   <span class="c1"># register the object with a name in the name server</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ready."</span><span class="p">)</span>
+<span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>                   <span class="c1"># start the event loop of the server to wait for calls</span>
+</pre></div>
+</div>
+<p>The <code class="file docutils literal notranslate"><span class="pre">greeting-client.py</span></code> is actually simpler now because we can use the name server to find the object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># saved as greeting-client.py</span>
+<span class="kn">import</span> <span class="nn">Pyro4</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What is your name? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">greeting_maker</span> <span class="o">=</span> <span class="n">Pyro4</span><span class="o">.</span><span class="n">Proxy</span><span class="p">(</span><span class="s2">"PYRONAME:example.greeting"</span><span class="p">)</span>    <span class="c1"># use name server object lookup uri shortcut</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting_maker</span><span class="o">.</span><span class="n">get_fortune</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The program now needs a Pyro name server that is running. You can start one by typing the
+following command: <strong class="command">python -m Pyro4.naming</strong> (or simply: <strong class="command">pyro4-ns</strong>) in a separate console window
+(usually there is just <em>one</em> name server running in your network).
+After that, start the server and client as before.
+There’s no need to copy-paste the object uri in the client any longer, it will ‘discover’
+the server automatically, based on the object name (<kbd class="kbd docutils literal notranslate">example.greeting</kbd>).
+If you want you can check that this name is indeed known in the name server, by typing
+the command <strong class="command">python -m Pyro4.nsc list</strong> (or simply: <strong class="command">pyro4-nsc list</strong>), which will produce:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pyro4-nsc list
+--------START LIST
+Pyro.NameServer --&gt; PYRO:Pyro.NameServer@localhost:9090
+example.greeting --&gt; PYRO:obj_663a31d2dde54b00bfe52ec2557d4f4f@localhost:51707
+--------END LIST
+</pre></div>
+</div>
+<p>(Once again the uri for our object will be random)
+This concludes this simple Pyro example.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the source archive there is a directory <code class="file docutils literal notranslate"><span class="pre">examples</span></code> that contains a truckload
+of example programs that show the various features of Pyro. If you’re interested in them
+(it is highly recommended to be so!) you will have to download the Pyro distribution archive.
+Installing Pyro only provides the library modules. For more information, see <a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/config.html"><span class="doc">Configuring Pyro</span></a>.</p>
+</div>
+</div>
+<div class="section" id="other-means-of-creating-connections">
+<h3>Other means of creating connections<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#other-means-of-creating-connections" title="Permalink to this headline">¶</a></h3>
+<p>The example above showed two of the basic ways to set up connections between your client and server code.
+There are various other options, have a look at the client code details: <a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/clientcode.html#object-discovery"><span class="std std-ref">Object discovery</span></a>
+and the server code details: <a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/servercode.html#publish-objects"><span class="std std-ref">Pyro Daemon: publishing Pyro objects</span></a>. The use of the name server is optional, see
+<a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/nameserver.html#name-server"><span class="std std-ref">Name Server</span></a> for details.</p>
+</div>
+</div>
+<div class="section" id="performance">
+<span id="index-4"></span><h2>Performance<a class="headerlink" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#performance" title="Permalink to this headline">¶</a></h2>
+<p>Pyro4 is pretty fast. On a typical networked system you can expect:</p>
+<ul class="simple">
+<li>a few hundred new proxy connections per second to one server</li>
+<li>similarly, a few hundred initial remote calls per second to one server</li>
+<li>a few thousand remote method calls per second on a single proxy</li>
+<li>tens of thousands batched or oneway remote calls per second</li>
+<li>10-100 Mb/sec data transfer</li>
+</ul>
+<p>Results do vary depending on many factors such as:</p>
+<ul class="simple">
+<li>network speed</li>
+<li>machine and operating system</li>
+<li>I/O or CPU bound workload</li>
+<li>contents and size of the pyro call request and response messages</li>
+<li>the serializer being used</li>
+<li>python version being used</li>
+</ul>
+<p>Experiment with the <code class="docutils literal notranslate"><span class="pre">benchmark</span></code>, <code class="docutils literal notranslate"><span class="pre">batchedcalls</span></code> and <code class="docutils literal notranslate"><span class="pre">hugetransfer</span></code> examples to see what results you get on your own setup.</p>
+<p class="rubric">Footnotes</p>
+<div class="wy-table-responsive footnote"><table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="https://pyro4.readthedocs.io/en/stable/intro.html?fbclid=IwAR2JBuq2hvVSQ4NLJojcDPgbZ9kjPbcrIdlT1xqyE51tL9Aic-CfxDqTI_o#id1">[1]</a></td><td>When configured to use the <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudpickle</span></code> or <code class="xref py py-mod docutils literal notranslate"><span class="pre">dill</span></code> serializer,
+your system may be vulnerable
+because of the security risks of these serialization protocols (possibility of arbitrary
+code execution).
+Pyro does have some security measures in place to mitigate this risk somewhat.
+They are described in the <a class="reference internal" href="https://pyro4.readthedocs.io/en/stable/security.html"><span class="doc">Security</span></a> chapter. It is strongly advised to read it.
+By default, Pyro is configured to use the safe <cite>serpent</cite> serializer, so you won’t have
+to deal with these issues unless you configure it explicitly to use one of the other serializers.</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://pyro4.readthedocs.io/en/stable/install.html" class="btn btn-neutral float-right" title="Installing Pyro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="https://pyro4.readthedocs.io/en/stable/index.html" class="btn btn-neutral float-left" title="Pyro - Python Remote Objects - 4.79" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr><div><div id="rtd-61poqlsd" class="ethical-rtd"></div></div>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright Irmen de Jong
+      
+        <span class="commit">
+          Revision <code>9fd891c1</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+
+<div class="injected">
+
+  
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+        
+        <dd><a href="https://pyro4.readthedocs.io/en/latest/intro.html">latest</a></dd>
+        
+        
+         <strong> 
+        <dd><a href="https://pyro4.readthedocs.io/en/stable/intro.html">stable</a></dd>
+         </strong> 
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://pyro4.readthedocs.io/_/downloads/en/stable/pdf/">PDF</a></dd>
+        
+        <dd><a href="https://pyro4.readthedocs.io/_/downloads/en/stable/htmlzip/">HTML</a></dd>
+        
+        <dd><a href="https://pyro4.readthedocs.io/_/downloads/en/stable/epub/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/pyro4/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/pyro4/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/pyro4/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/irmen/Pyro4/blob/9fd891c1cf33530cd263f83ed7f805317474a48c/docs/source/intro.rst">View</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/pyro4/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+
+
+      <hr>
+      
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+        </small>
+      
+
+      
+
+</div>
+</div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+
+<div id="rtd-jwoxpv6a"></div></body></html>
