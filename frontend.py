@@ -1,19 +1,51 @@
 import Pyro4
 
+
 @Pyro4.expose
-class GetName(object):
-    def get_fortune(self, name):
-        print("Frontend")
-        greeting_maker = Pyro4.Proxy("PYRONAME:server.backend")
-        return (greeting_maker.get_fortune(name))
+class FrontEnd(object):
+    def check_post_code(self, post_code):
+        return (backend.validate_post_code(post_code))
 
-daemon = Pyro4.Daemon()                # make a Pyro daemon
-ns = Pyro4.locateNS()                  # find the name server
-uri = daemon.register(GetName)          # register the greeting maker as a Pyro object
-print(uri)  
-ns.register("server.frontend", uri)   # register the object with a name in the name server
+    def list_orders(self, post_code):
+        order_list = (backend.get_orders(post_code))
+        text = "Here are the previous orders to " + post_code + ": \n"
+        for order in order_list:
+            text = text + "Name: " + order["Name"] + ". Items: "
+            first = True
+            for item in order["Order"]:
+                if first:
+                    text = text + item
+                    first = False
+                else:
+                    text = text + ", " + item
+            text = text + ". Cost: " + "£%.2f" % order["Cost"] + "\n"
+        return text
+
+    def create_order(self, name, order, post_code):
+        item_list = backend.list_items()
+        for item in order:
+            if item not in item_list:
+                return "This is not a valid order."
+        details = {"PostCode": post_code, "Name": name, "Order": order}
+        cost = backend.new_order(details)
+        return "The order has been complete. The total cost will be" + " £%.2f" % cost
+
+    def get_items(self):
+        item_list = backend.list_items()
+        text = "Here is the list of items: "
+        for item in item_list:
+            text = text + item + ", "
+        return text
 
 
+def main():
+    Pyro4.Daemon.serveSimple(
+        {
+            FrontEnd: "server.frontend"
+        },
+        ns=True)
 
-print("Ready.")
-daemon.requestLoop()                   # start the event loop of the server to wait for calls
+
+if __name__ == "__main__":
+    backend = Pyro4.Proxy("PYRONAME:server.backend")
+    main()
