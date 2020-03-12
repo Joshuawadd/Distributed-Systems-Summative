@@ -40,12 +40,14 @@ order_dict = {1: {"PostCode": "CM9 6BA", "Name": "Sara Ryder", "Order": ["Chips"
 
 
 def main():
+    print(ns.list(prefix="server"))    
     Pyro4.Daemon.serveSimple(
         {
-            Backend: "server.backend"
+            Backend: "server.backend.main"
         },
         ns=True)
 
 
 if __name__ == "__main__":
+    ns = Pyro4.locateNS()
     main()

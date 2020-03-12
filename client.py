@@ -1,7 +1,6 @@
 # saved as greeting-client.py
 import Pyro4
 import sys
-
 sys.excepthook = Pyro4.util.excepthook
 
 # use name server object lookup uri shortcut
