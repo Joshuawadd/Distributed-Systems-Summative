@@ -2,6 +2,7 @@ import Pyro4
 import sys
 sys.excepthook = Pyro4.util.excepthook
 
+
 @Pyro4.expose
 class FrontEnd(object):
     def check_post_code(self, post_code):
@@ -27,8 +28,9 @@ class FrontEnd(object):
     def create_order(self, name, order, post_code):
         backend = Pyro4.Proxy("PYRONAME:server.backend.main")
         item_list = backend.list_items()
+        item_list_lower = map(str.lower, item_list)
         for item in order:
-            if item not in item_list:
+            if item.lower() not in item_list_lower:
                 return "This is not a valid order."
         details = {"PostCode": post_code, "Name": name, "Order": order}
         cost = backend.new_order(details)
@@ -44,9 +46,9 @@ class FrontEnd(object):
 
 
 def main():
-    daemon = Pyro4.Daemon()                # make a Pyro daemon                # find the name server
-    uri = daemon.register(FrontEnd)   # register the greeting maker as a Pyro object
-    ns.register("server.frontend", uri)   # register the object with a name in the name server
+    daemon = Pyro4.Daemon()
+    uri = daemon.register(FrontEnd)
+    ns.register("server.frontend", uri)
 
     print("Ready on server.frontend")
     daemon.requestLoop()

@@ -3,6 +3,7 @@ import requests
 import sys
 sys.excepthook = Pyro4.util.excepthook
 
+
 @Pyro4.expose
 @Pyro4.behavior(instance_mode="single")
 class Backend(object):
@@ -10,7 +11,16 @@ class Backend(object):
         response = requests.get(
             "http://api.postcodes.io/postcodes/" + post_code + "/validate")
         data = response.json()
-        return data["result"]
+        if data["status"] != 200:
+            response = requests.get(
+                "http://api.getthedata.com/postcode/" + post_code)
+            data = response.json()
+            if data["status"] == "match":
+                return True
+            else:
+                return False
+        else:
+            return data["result"]
 
     def get_orders(self, post_code):
         order_list = []
@@ -61,24 +71,14 @@ def main():
     else:
         server_num = len(ns.list(prefix="server.backend.reserve")) + 1
         server_name = "server.backend.reserve" + str(server_num)
-    daemon = Pyro4.Daemon()                # make a Pyro daemon                # find the name server
-    uri = daemon.register(Backend)   # register the greeting maker as a Pyro object
-    ns.register(server_name, uri)   # register the object with a name in the name server
+
+    daemon = Pyro4.Daemon()
+    uri = daemon.register(Backend)
+    ns.register(server_name, uri)
 
     print("Ready on " + server_name)
     daemon.requestLoop()
 
-
-    # if not ns.list(prefix="server.backend.main"):
-    #     server_name = "server.backend.main"
-    # else:
-    #     server_num = len(ns.list(prefix="server.backend.reserve")) + 1
-    #     server_name = "server.backend.reserve" + str(server_num)
-    # Pyro4.Daemon.serveSimple(
-    #     {
-    #         Backend: server_name
-    #     },
-    #     ns=True)
     if not ns.list(prefix="server.backend.reserve"):
         ns.remove(name="server.backend.main")
     else:
@@ -87,11 +87,10 @@ def main():
         reserve = Pyro4.Proxy("PYRONAME:"+backup)
 
         ns.remove(name=server_name)
-        reserve.change_to_main(backup) 
+        reserve.change_to_main(backup)
 
 
 if __name__ == "__main__":
     uri = ""
     ns = Pyro4.locateNS()
     main()
-    
