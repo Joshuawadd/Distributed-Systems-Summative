@@ -1,12 +1,15 @@
 import Pyro4
-
+import sys
+sys.excepthook = Pyro4.util.excepthook
 
 @Pyro4.expose
 class FrontEnd(object):
     def check_post_code(self, post_code):
+        backend = Pyro4.Proxy("PYRONAME:server.backend.main")
         return (backend.validate_post_code(post_code))
 
     def list_orders(self, post_code):
+        backend = Pyro4.Proxy("PYRONAME:server.backend.main")
         order_list = (backend.get_orders(post_code))
         text = "Here are the previous orders to " + post_code + ": \n"
         for order in order_list:
@@ -22,6 +25,7 @@ class FrontEnd(object):
         return text
 
     def create_order(self, name, order, post_code):
+        backend = Pyro4.Proxy("PYRONAME:server.backend.main")
         item_list = backend.list_items()
         for item in order:
             if item not in item_list:
@@ -31,6 +35,7 @@ class FrontEnd(object):
         return "The order has been complete. The total cost will be" + " £%.2f" % cost
 
     def get_items(self):
+        backend = Pyro4.Proxy("PYRONAME:server.backend.main")
         item_list = backend.list_items()
         text = "Here is the list of items: "
         for item in item_list:
@@ -39,13 +44,16 @@ class FrontEnd(object):
 
 
 def main():
-    Pyro4.Daemon.serveSimple(
-        {
-            FrontEnd: "server.frontend"
-        },
-        ns=True)
+    daemon = Pyro4.Daemon()                # make a Pyro daemon                # find the name server
+    uri = daemon.register(FrontEnd)   # register the greeting maker as a Pyro object
+    ns.register("server.frontend", uri)   # register the object with a name in the name server
+
+    print("Ready on server.frontend")
+    daemon.requestLoop()
+
+    ns.remove(name="server.frontend")
 
 
 if __name__ == "__main__":
-    backend = Pyro4.Proxy("PYRONAME:server.backend")
+    ns = Pyro4.locateNS()
     main()
